@@ -1,0 +1,36 @@
+from django.urls import path
+from .views import (
+    add_to_cart,
+    get_cart,
+    update_cart,
+    delete_cart,
+    get_orders,
+    checkout,
+    get_order,
+    update_order_status,
+    pay_order,
+    cancel_order,
+    seller_orders,
+    seller_dashboard,
+    addresses,
+    address_detail,
+    ship_order,
+)
+
+urlpatterns = [
+    path("items/", add_to_cart),
+    path("", get_cart),
+    path("items/<int:pk>/", update_cart),
+    path("items/<int:pk>/delete/", delete_cart),
+    path("checkout/", checkout),
+    path("orders/", get_orders),
+    path("orders/<int:pk>/", get_order),
+    path("orders/<int:pk>/status/", update_order_status),
+    path("orders/<int:pk>/pay/", pay_order),
+    path("orders/<int:pk>/cancel/", cancel_order),
+    path("seller/orders/", seller_orders),
+    path("seller/dashboard/", seller_dashboard),
+    path("addresses/", addresses),
+    path("addresses/<int:pk>/", address_detail),
+    path("orders/<int:pk>/shipping/", ship_order),
+]
